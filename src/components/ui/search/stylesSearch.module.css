@@ -23,3 +23,16 @@
 .input::placeholder {
     color: #B4B4B4;
 }
+
+@media (max-width: 1290px) {
+
+    .showInput {
+        width: 90%;
+    }
+
+    form {
+        display: flex;
+        justify-content: end;
+        width: 100vw;
+    }
+}

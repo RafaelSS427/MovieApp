@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Dropdown from 'react-dropdown'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 
@@ -16,6 +16,7 @@ export const Navbar = () => {
     const [visible, setVisible] = useState(false)
     const [options, setOptions] = useState([])
     const [valueDrop, setValueDrop] = useState("Categorías")
+    const [showMenu, setShowMenu] = useState(false)
 
     // Apartir de que la pantalla mida 1350 se cambia el menu
 
@@ -26,8 +27,17 @@ export const Navbar = () => {
 
     const onSelect = ({ value }) => {
         setValueDrop(value)
+        setShowMenu(false)
         navigation(`/categories/${ value }`)
     }
+
+    const handleShowMenu = () => {
+        setShowMenu(!showMenu)
+    }
+
+    const classNameMenu = classNames(styleNavbar.containerOptionsNav, {
+        [styleNavbar.containerOptionsNavActive]: showMenu
+    })
 
     useEffect(() => {
         getGenres().then(res => {
@@ -40,19 +50,27 @@ export const Navbar = () => {
     useEffect(() => {
         if(!pathname.includes('/categories')){
             setValueDrop('Categorías')
+            setShowMenu(false)
         }
     }, [pathname])
-    
+
 
     return (
         <nav className={ classNames('grid', styleNavbar.nav, 'grid-nogutter') }>
             <div className={ classNames(styleNavbar.sizeLogo, 'col-fixed') }>
-                <img src={logo} width={246} height={170} alt="MovieAPP logo" />
+                <Link to="/">
+                    <img src={logo} width={246} height={170} alt="MovieAPP logo" />
+                </Link>
             </div>
 
             <div className={ classNames(styleNavbar.menu, 'col') }>
 
-                <div className={styleNavbar.containerOptionsNav}>
+                <div onClick={handleShowMenu} className={styleNavbar.menuOption}>
+                    <i className="fa-solid fa-bars"></i>
+                </div>
+
+
+                <div className={classNameMenu}>
                     <ul className={ styleNavbar.ul }>
                         <li className={ classNames(styleNavbar.li, styleNavbar.hoverLi) }>
                             <Link to="/" className={ styleNavbar.link }>Inicio</Link>
