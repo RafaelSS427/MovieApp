@@ -1,0 +1,20 @@
+.embla {
+  overflow: hidden;
+  width: 100%;
+}
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  /* flex: '0 0 33%' */
+  position: relative;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+/* @media (max-width: 361px){
+  .embla__slide {
+    flex: 0 0 100%;
+  }
+} */

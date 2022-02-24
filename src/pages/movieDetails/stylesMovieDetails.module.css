@@ -1,0 +1,32 @@
+.containerInfoMovie {
+    background-color: #00184B;
+    color: white;
+    border-radius: 15px;
+    padding: 40px;
+}
+
+
+.containerInfoMovie h1 {
+    font-size: 50px;
+    margin-bottom: 5px;
+}
+
+.containerInfoMovie small {
+    font-size: 25px;
+}
+
+.containerInfoMovie h4 {
+    font-size: 35px;
+    margin-top: 30px;
+}
+
+.containerInfoMovie p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.containerInfoCredits h1 {
+    color: #00184B;
+    font-size: 45px;
+}

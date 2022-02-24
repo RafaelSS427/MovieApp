@@ -1,0 +1,25 @@
+.input{
+    height: 35px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    color: black;
+    padding: 10px;
+    caret-color: #00184B;
+    transition: all .3s ease;
+}
+
+.showInput {
+    visibility: visible;
+    width: 350px;
+    padding-right: 45px;
+}
+
+.hideInput {
+    width: 10px;
+    /* visibility: hidden; */
+}
+
+.input::placeholder {
+    color: #B4B4B4;
+}
