@@ -16,6 +16,7 @@ export const Categories  = () => {
   }
 
   const getMovies = async () => {
+    setLoading(true)
     const data = await getGenres()
     const id = getIdGenre(data);
     const resultMovies = await getMovieCategorie(id)
@@ -25,7 +26,6 @@ export const Categories  = () => {
 
 
   useEffect(() => {
-    setLoading(true)
     getMovies()
     setLoading(false)
   }, [categorie])
@@ -36,7 +36,7 @@ export const Categories  = () => {
             <img src={gifLoading} alt="gif de carga" />
         </div>
     )
-}
+  }
 
 
   return (
@@ -45,7 +45,7 @@ export const Categories  = () => {
       }} className="grid justify-content-around">
 
           {
-              movies.length &&
+              movies.length > 0 &&
               movies.map(({id, title, release_date, poster_path}, i) => (
                   <CardMovie
                       key={id}
