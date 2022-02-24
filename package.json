@@ -1,10 +1,10 @@
 {
-  "homepage": "https://rafaelss427.github.io/MovieApp",
+  "homepage": "https://rafaelss427.github.io/",
   "name": "movie-app",
   "version": "0.0.0",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d docs",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
