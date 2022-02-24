@@ -22,6 +22,8 @@ export default function MovieDetails() {
     const [isOpen, setIsOpen] = useState(false)
     const { id } = useParams()
 
+    const [proof, setProof] = useState(true)
+
     const windowPhone = window.innerWidth;
 
     const handleOpenWindow = () => {
@@ -82,7 +84,14 @@ export default function MovieDetails() {
                     padding: '5px',
                     display: 'inline-block'
                 }}>
-                    <img width="150px" src={environment.urlApiImages + movieInfo.production_companies[0].logo_path} alt="logo company" />
+                    {
+                        movieInfo.production_companies.length > 0 ? (
+                            <img width="150px" src={environment.urlApiImages + movieInfo.production_companies[0].logo_path} alt="logo company" />
+
+                        ):(
+                            <small>No se tiene la información del logo</small>
+                        )
+                    }
                     {/* <small style={{fontSize: '18px'}}> { movieInfo.production_companies[0].name } </small> */}
                 </div>
 
@@ -139,7 +148,21 @@ export default function MovieDetails() {
 
 
         <AppModal isOpen={isOpen} setIsOpen={setIsOpen}>
-           <iframe width={ windowPhone <= 400 ? '325px' : '560px'} height="315" src={`https://www.youtube.com/embed/${movieVideo}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            <div className="flex justify-contend-center">
+                {
+                    proof &&
+                    <img style={{
+                        position: 'absolute',
+                        left: '50%',
+                        top:  '50%',
+                        transform: 'translate(-50%, -50%)'
+                    }} src={gifLoading} alt="gif de carga" />
+                }
+                <iframe onLoad={() => {
+                    //Una vez cargue el componente
+                    setProof(false)
+                }} width={ windowPhone <= 400 ? '325px' : '560px'} height="315" src={`https://www.youtube.com/embed/${movieVideo}`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
         </AppModal>
         </>
         }

@@ -34,9 +34,7 @@ export const AppModal = ({isOpen, setIsOpen, children}) => {
             <i onClick={closeModal} className="fa-solid fa-xmark" style={{fontSize:'25px'}}></i>
           </div>
 
-          <div className="flex justify-contend-center">
-              {children}
-          </div>
+          {children}
       </Modal>
     )
 }

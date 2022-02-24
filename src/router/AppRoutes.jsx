@@ -12,7 +12,6 @@ import MovieDetails from '../pages/movieDetails/MovieDetails'
 import notFound from '../assets/NotFound.png'
 
 const PageNotFount = () => {
-    console.log(notFound);
     return(
         <div className="flex justify-content-center">
             <img width="350px" src={notFound} alt="" />
